@@ -23,6 +23,15 @@ app.get('/', (request, response ) => {
 
 // get all items in the garage_bin
 
+app.get('/api/v1/stuff', (request,response) => {
+  database('stuff').select()
+  .then(stuff => {
+    response.status(200).json(stuff);
+  })
+  .catch(error => {
+    console.log('error', error);
+  });
+});
 
 if (!module.parent) {
   app.listen(app.get('port'), () => {
