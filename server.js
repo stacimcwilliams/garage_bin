@@ -50,7 +50,7 @@ app.get('/api/v1/stuff/:id', (request, response) => {
     });
 });
 
-// add a new thing
+// add a new thing to garage_bin
 
 app.post('/api/v1/stuff', (request, response) => {
     const validStuff = [ 'name', 'reason', 'cleanliness' ].every(param => request.body[param]);
@@ -67,6 +67,27 @@ app.post('/api/v1/stuff', (request, response) => {
         response.status(500).send({ error });
       });
 });
+
+// update the cleanliness of an item in the garage_bin
+
+app.put('/api/v1/stuff/:id/edit', (request, response) => {
+  const { id } = request.params;
+  const { cleanliness } = request.body;
+
+  if (!cleanliness) {
+    return response.status(422).send('Sorry you did not pass the correct information')
+  }
+  database('stuff').where('id', id).update({ cleanliness: cleanliness })
+    .then(() => {
+      database('stuff').where('id', id).select()
+      .then((stuff) => {
+        response.status(200).json(stuff);
+      })
+      .catch((error) => {
+        response.status(500).send({ error })
+      })
+    });
+})
 
 if (!module.parent) {
   app.listen(app.get('port'), () => {
