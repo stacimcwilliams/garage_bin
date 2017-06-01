@@ -9,8 +9,28 @@ h1 {
   text-align: center;
   font-size: 45px;
   font-weight: bold;
+  margin: 10px;
 }
 
+button{
+  background-color: #DBB1BC;
+  font-family: 'Raleway', sans-serif;
+  height: 40px;
+  padding: 10px;
+  display: table;
+  margin: 10px auto
+}
+
+.garage-item{
+  margin-top: 10px;
+  text-align: center;
+}
+
+.stuff-title{
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+}
 
 #DBB1BC
 #2E5266
