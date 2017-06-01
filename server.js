@@ -29,8 +29,25 @@ app.get('/api/v1/stuff', (request,response) => {
     response.status(200).json(stuff);
   })
   .catch(error => {
-    console.log('error', error);
+    response.sendStatus(500).send({ error });
   });
+});
+
+// get a single item in the garage_bin
+
+app.get('/api/v1/stuff/:id', (request, response) => {
+  const { id } = request.params
+  database('stuff').select().where('id', id)
+    .then((stuff) => {
+      if (!stuff.length) {
+        response.status(404).send({ error: 'Stuff is not there!' });
+      } else {
+        response.status(200).json(stuff)
+      }
+    })
+    .catch((error) => {
+      response.status(500).send({ error });
+    });
 });
 
 if (!module.parent) {
