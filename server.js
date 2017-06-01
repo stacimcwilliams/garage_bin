@@ -50,6 +50,24 @@ app.get('/api/v1/stuff/:id', (request, response) => {
     });
 });
 
+// add a new thing
+
+app.post('/api/v1/stuff', (request, response) => {
+    const validStuff = [ 'name', 'reason', 'cleanliness' ].every(param => request.body[param]);
+    const { name, reason, cleanliness } = request.body;
+
+    if (!validStuff) {
+      return response.status(422).send({ error: 'You are missing something content in describing your item' });
+    }
+    database('stuff').insert({ name, reason, cleanliness }, [ 'id', 'name', 'reason', 'cleanliness' ])
+      .then((addedStuff) => {
+        response.status(200).send(addedStuff[0]);
+      })
+      .catch((error) => {
+        response.status(500).send({ error });
+      });
+});
+
 if (!module.parent) {
   app.listen(app.get('port'), () => {
     console.log(`${app.locals.title} is running on ${app.get('port')}.`)
