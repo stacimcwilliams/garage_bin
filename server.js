@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyParse = require('body-parser');
+const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -20,6 +20,8 @@ app.get('/', (request, response ) => {
     response.send(file)
   })
 });
+
+// get all items in the garage_bin
 
 
 if (!module.parent) {
