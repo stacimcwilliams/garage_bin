@@ -32,6 +32,12 @@ button{
   margin-top: 20px;
 }
 
+.count-container {
+  margin: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
 #DBB1BC
 #2E5266
 #D4F5F5
