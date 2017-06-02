@@ -110,4 +110,21 @@ describe('Server testing', () => {
       })
     })
   })
-})
+
+  describe('Sad path /api/v1/stuff',() => {
+    it('SAD /api/v1/items', (done) => {
+      chai.request(server)
+      .post('/api/v1/stuff')
+      .send({
+        name: 'test',
+        id: 2
+      })
+      .end((err, response) => {
+        response.should.have.status(422);
+        done();
+      });
+    });
+
+  })
+
+});
