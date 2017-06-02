@@ -112,7 +112,7 @@ describe('Server testing', () => {
   })
 
   describe('Sad path /api/v1/stuff',() => {
-    it('SAD /api/v1/items', (done) => {
+    it('SAD /api/v1/stuff', (done) => {
       chai.request(server)
       .post('/api/v1/stuff')
       .send({
@@ -124,7 +124,17 @@ describe('Server testing', () => {
         done();
       });
     });
+  });
 
-  })
-
+  describe('GET /api/v1/stuff', () => {
+    it('should retrieve the list sorted A-Z', (done) => {
+      chai.request(server)
+      .get('/api/v1/stuff')
+      .end((error, response) => {
+        response.should.have.status(200)
+        response.body[0].name.should.equal('books')
+        done();
+      });
+    });
+  });
 });
