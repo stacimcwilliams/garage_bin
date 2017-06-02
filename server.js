@@ -24,7 +24,19 @@ app.get('/', (request, response ) => {
 // get all items in the garage_bin
 
 app.get('/api/v1/stuff', (request,response) => {
-  database('stuff').select()
+  database('stuff').select().orderBy('name', 'asc')
+  .then(stuff => {
+    response.status(200).json(stuff);
+  })
+  .catch(error => {
+    response.sendStatus(500).send({ error });
+  });
+});
+
+//sort a-z
+
+app.get('/api/v1/stuff/sort', (request,response) => {
+  database('stuff').select().orderBy('name', 'asc')
   .then(stuff => {
     response.status(200).json(stuff);
   })
@@ -37,6 +49,7 @@ app.get('/api/v1/stuff', (request,response) => {
 
 app.get('/api/v1/stuff/:id', (request, response) => {
   const { id } = request.params
+
   database('stuff').select().where('id', id)
     .then((stuff) => {
       if (!stuff.length) {

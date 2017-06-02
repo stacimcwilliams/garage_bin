@@ -9,13 +9,14 @@
 </head>
 <body>
   <h1 id="title"> Garage Bin</h1>
-
   <section id="close-garage-bin">
     <button type="button" class="open-garage-btn"> Click here to open the Garage!</button>
   </section>
-
   <div id="open-garage-bin">
+    <div class='one-item'>
+    </div>
     <section class='stuff-container'>
+      <button type='button' class='sort-items-btn btn'>Sort A-Z</button>
       <div class='stuff-header'>
         <h2 class='stuff-title'>Here's that stuff</h2>
       </div>
@@ -23,26 +24,22 @@
       </ul>
     </section>
     <div class='count-container'>
-      <p>Item total:</p>
     </div>
-    
-    <button class='sort-items-btn btn'>Sort A-Z</button>
+    <div class="cleanliness-counter">
+    </div>
     <div class="add-stuff">
       <input class="name-input" placeholder="Name"></input>
       <input class="reason-input" placeholer="Reason"></input>
       <select class="cleanliness-input" name="Cleanliness">
-        <option value="Sparkling">Sparkling</option>
-        <option value="Dusty">Dusty</option>
-        <option value="Rancid">Rancid</option>
+        <option value="sparkling">Sparkling</option>
+        <option value="dusty">Dusty</option>
+        <option value="rancid">Rancid</option>
       </select>
-
-
-      <button class="add-stuff-btn">Submit more stuff</button>
+      <button type='button' class="add-stuff-btn">Submit more stuff</button>
     </div>
-    <button class="close-garage-btn">Close the Garage</button>
+    <button type="button" class="close-garage-btn">Close the Garage</button>
   </div>
-
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>src="https://code.jquery.com/jquery-3.2.1.min.js"</script>
   <script>window.jQuery || document.write('<script src="js/jquery-3.2.1.min.js"><\/script>')</script>
   <script type="text/javascript" src="./index.js"></script>
 </body>

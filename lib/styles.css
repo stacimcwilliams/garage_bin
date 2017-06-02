@@ -1,45 +1,81 @@
-body{
-  height: 100%;
-  background-color: #D4F5F5;
-  font-family: 'Raleway', sans-serif;
+body {
+  height           : 100%;
+  background-color : #D4F5F5;
+  font-family      : 'Raleway',
+                     sans-serif;
 }
 
 h1 {
-  color: #2E5266;
-  text-align: center;
-  font-size: 45px;
-  font-weight: bold;
-  margin: 10px;
+  margin      : 10px;
+  color       : #2E5266;
+  text-align  : center;
+  font-size   : 45px;
+  font-weight : bold;
 }
 
-button{
-  background-color: #DBB1BC;
-  font-family: 'Raleway', sans-serif;
-  height: 40px;
-  padding: 10px;
-  display: table;
-  margin: 10px auto
+.btn,
+button {
+  display          : table;
+  height           : 40px;
+  margin           : 10px auto;
+  padding          : 10px;
+  background-color : #DBB1BC;
+  font-family      : 'Raleway',
+                     sans-serif;
 }
 
-.garage-item{
-  margin-top: 10px;
-  text-align: center;
+.garage-item {
+  margin-top : 10px;
+  text-align : center;
 }
 
-.stuff-title{
-  text-align: center;
-  font-weight: bold;
-  margin-top: 20px;
+.stuff-title {
+  top         : 43px;
+  margin-top  : 20px;
+  text-align  : center;
+  font-weight : bold;
+}
+
+.counters {
+  margin     : 18px;
+  text-align : center;
 }
 
 .count-container {
-  margin: 10px;
-  text-align: center;
-  font-weight: bold;
+  margin      : 10px;
+  text-align  : center;
+  font-weight : bold;
 }
 
-#DBB1BC
-#2E5266
-#D4F5F5
-#548687
-#8C9A9E
+.stuff-container {
+  margin-top : 38px;
+}
+
+.indiv-stuff {
+  width            : 50%;
+  margin-top       : 20px;
+  margin-right     : auto;
+  margin-left      : auto;
+  color            : #548687;
+  border           : 1px solid black;
+  background-color : #8C9A9E;
+  text-align       : center;
+  font-weight      : bold;
+}
+
+.add-stuff {
+  text-align : center;
+}
+
+.single-item {
+  width            : 50%;
+  height           : 64px;
+  margin-top       : 20px;
+  margin-right     : auto;
+  margin-left      : auto;
+  color            : #548687;
+  border           : 1px solid black;
+  background-color : #8C9A9E;
+  text-align       : center;
+  font-weight      : bold;
+}
