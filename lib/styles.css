@@ -30,10 +30,11 @@ button {
 }
 
 .stuff-title {
+  color:  #2E5266
   top         : 43px;
   margin-top  : 20px;
   text-align  : center;
-  font-weight : bold;
+  font-size: 30px;
 }
 
 .counters {
