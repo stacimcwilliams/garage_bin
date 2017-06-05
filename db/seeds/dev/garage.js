@@ -1,33 +1,33 @@
 
-exports.seed = function(knex, Promise) {
+exports.seed = function (knex, Promise) {
   return knex('stuff').del()
   .then(() => {
     return Promise.all([
       knex('stuff').insert({
         name: 'cat figurines',
         reason: 'unused',
-        cleanliness: 'rancid'
+        cleanliness: 'rancid',
       }),
       knex('stuff').insert({
         name: 'purses',
         reason: 'have too many',
-        cleanliness: 'sparkling'
+        cleanliness: 'sparkling',
       }),
       knex('stuff').insert({
         name: 'luggage',
         reason: 'ugly',
-        cleanliness: 'dusty'
+        cleanliness: 'dusty',
       }),
       knex('stuff').insert({
         name: 'books',
         reason: 'unused',
-        cleanliness: 'dusty'
+        cleanliness: 'dusty',
       }),
       knex('stuff').insert({
         name: 'vhs tapes',
         reason: 'obsolete',
-        cleanliness: 'dusty'
+        cleanliness: 'dusty',
       }),
-    ])
-  })
-}
+    ]);
+  });
+};
