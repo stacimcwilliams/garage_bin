@@ -17,7 +17,7 @@ h1 {
 button {
   display          : table;
   height           : 40px;
-  margin           : 10px auto;
+  margin           : 21px auto;
   padding          : 10px;
   background-color : #DBB1BC;
   font-family      : 'Raleway',
@@ -54,6 +54,7 @@ button {
 
 .indiv-stuff {
   width            : 50%;
+  height            :54px;
   margin-top       : 20px;
   margin-right     : auto;
   margin-left      : auto;

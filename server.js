@@ -37,14 +37,13 @@ app.get('/api/v1/stuff', (request, response) => {
 
 app.get('/api/v1/stuff/sort', (request, response) => {
   database('stuff').select().orderBy('name', 'asc')
-  .then(stuff => {
-    response.status(200).json(stuff);
-  })
-  .catch(error => {
-    response.sendStatus(500).send({ error });
-  });
+    .then((sorted) => {
+      response.status(200).json(sorted);
+    })
+    .catch((error) => {
+      response.status(500).send({ error });
+    });
 });
-
 // get a single item in the garage_bin
 
 app.get('/api/v1/stuff/:id', (request, response) => {
@@ -98,6 +97,22 @@ app.put('/api/v1/stuff/:id/edit', (request, response) => {
     })
     .catch((error) => {
       response.status(500).send({ error });
+    });
+  });
+});
+
+// delete
+
+app.delete('/api/v1/stuff/:id', (request, response) => {
+  const { id } = request.params;
+  database('stuff').where('id', id).del()
+  .then(() => {
+    database('stuff').select()
+    .then((stuff) => {
+      response.status(204).json(items);
+    })
+    .catch((error) => {
+      response.status(404).send('stuff not found');
     });
   });
 });
